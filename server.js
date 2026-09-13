@@ -11,8 +11,6 @@ const db = initDb();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-/* ---------------- Меню и акции ---------------- */
-
 app.get('/api/menu', (req, res) => {
   res.json(db.prepare('SELECT * FROM menu_items ORDER BY id').all());
 });
@@ -20,8 +18,6 @@ app.get('/api/menu', (req, res) => {
 app.get('/api/promos', (req, res) => {
   res.json(db.prepare('SELECT * FROM promos ORDER BY id').all());
 });
-
-/* ---------------- Отзывы ---------------- */
 
 app.get('/api/reviews', (req, res) => {
   res.json(db.prepare('SELECT * FROM reviews ORDER BY id DESC').all());
@@ -47,8 +43,6 @@ app.post('/api/reviews', (req, res) => {
 
   res.status(201).json(db.prepare('SELECT * FROM reviews WHERE id = ?').get(info.lastInsertRowid));
 });
-
-/* ---------------- Бронирования ---------------- */
 
 app.get('/api/bookings', (req, res) => {
   res.json(db.prepare('SELECT * FROM bookings ORDER BY date DESC, time DESC, id DESC').all());

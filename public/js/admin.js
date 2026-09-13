@@ -1,7 +1,5 @@
 'use strict';
 
-/* ============ LUMIÈRE — панель бронирований ============ */
-
 const $ = (sel) => document.querySelector(sel);
 
 const escapeHtml = (str = '') =>
@@ -18,8 +16,6 @@ const STATUS_CLASS = {
 let bookings = [];
 let filter = 'все';
 
-/* ---- Часы в шапке ---- */
-
 function tickClock() {
   $('#liveClock').textContent = new Date().toLocaleString('ru-RU', {
     weekday: 'short', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit',
@@ -27,8 +23,6 @@ function tickClock() {
 }
 tickClock();
 setInterval(tickClock, 30_000);
-
-/* ---- Загрузка данных ---- */
 
 async function loadBookings() {
   try {
@@ -40,8 +34,6 @@ async function loadBookings() {
       '<tr><td colspan="10" class="admin-table__empty">Не удалось загрузить данные</td></tr>';
   }
 }
-
-/* ---- Статистика ---- */
 
 function renderStats() {
   const total = bookings.length;
@@ -58,8 +50,6 @@ function renderStats() {
     <div class="stat-card"><b>${guests}</b><span>гостей ожидается</span></div>
   `;
 }
-
-/* ---- Таблица бронирований ---- */
 
 function renderTable() {
   const tbody = $('#bookingsTable tbody');
@@ -99,8 +89,6 @@ function renderTable() {
   }).join('');
 }
 
-/* ---- Действия ---- */
-
 $('#bookingsTable').addEventListener('click', async (e) => {
   const btn = e.target.closest('.admin-btn');
   if (!btn) return;
@@ -139,7 +127,5 @@ $('#statusFilter').addEventListener('change', (e) => {
 });
 
 $('#refreshBtn').addEventListener('click', loadBookings);
-
-/* ---- Инициализация ---- */
 
 loadBookings();

@@ -1,7 +1,5 @@
 'use strict';
 
-/* ============ LUMIÈRE — клиентская логика ============ */
-
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
@@ -16,8 +14,6 @@ const formatDate = (iso) =>
   new Date(`${iso}T00:00:00`).toLocaleDateString('ru-RU', {
     day: 'numeric', month: 'long', year: 'numeric',
   });
-
-/* ---- Шапка и мобильное меню ---- */
 
 const header = $('#header');
 const burger = $('#burger');
@@ -38,8 +34,6 @@ nav.addEventListener('click', (e) => {
     nav.classList.remove('nav--open');
   }
 });
-
-/* ---- Меню (загрузка из БД) ---- */
 
 const menuGrid = $('#menuGrid');
 const menuTabs = $('#menuTabs');
@@ -89,8 +83,6 @@ async function loadMenu() {
   }
 }
 
-/* ---- Акции ---- */
-
 async function loadPromos() {
   const grid = $('#promosGrid');
   try {
@@ -106,8 +98,6 @@ async function loadPromos() {
     grid.innerHTML = '<p class="menu__loading">Не удалось загрузить акции</p>';
   }
 }
-
-/* ---- Отзывы ---- */
 
 function starsHtml(rating) {
   return Array.from({ length: 5 }, (_, i) =>
@@ -179,13 +169,10 @@ $('#reviewForm').addEventListener('submit', async (e) => {
   }
 });
 
-/* ---- Бронирование ---- */
-
 const bookingForm = $('#bookingForm');
 const bookingStatus = $('#bookingStatus');
 const bkDate = $('#bkDate');
 
-// Минимальная дата — сегодня
 const today = new Date();
 today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
 bkDate.min = today.toISOString().slice(0, 10);
@@ -224,8 +211,6 @@ bookingForm.addEventListener('submit', async (e) => {
   }
 });
 
-/* ---- Галерея: лайтбокс ---- */
-
 const lightbox = $('#lightbox');
 const lightboxImg = $('#lightboxImg');
 const galleryItems = $$('.gallery__item');
@@ -260,8 +245,6 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowRight') openLightbox(currentIdx + 1);
 });
 
-/* ---- Появление блоков при скролле ---- */
-
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -272,9 +255,6 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 $$('.reveal').forEach((el) => observer.observe(el));
 
-/* ---- Инициализация ---- */
-
 loadMenu();
 loadPromos();
 loadReviews();
-

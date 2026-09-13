@@ -3,10 +3,6 @@
 const { DatabaseSync } = require('node:sqlite');
 const path = require('path');
 
-/**
- * Инициализация базы данных ресторана.
- * Создаёт таблицы и заполняет их тестовыми данными при первом запуске.
- */
 function initDb() {
   const db = new DatabaseSync(path.join(__dirname, 'restaurant.db'));
 
