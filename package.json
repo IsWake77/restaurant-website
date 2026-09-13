@@ -1,0 +1,22 @@
+{
+  "name": "restaurant-lumiere",
+  "version": "1.0.0",
+  "description": "Сайт ресторана LUMIÈRE: меню, бронирование столика, галерея, отзывы, акции. Express + SQLite.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "restaurant",
+    "express",
+    "sqlite",
+    "booking",
+    "portfolio"
+  ],
+  "author": "Portfolio Project",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

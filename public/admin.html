@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUMIÈRE — Панель бронирований</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+
+  <header class="header header--scrolled">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">LUMI<span>È</span>RE</a>
+      <nav class="nav nav--static">
+        <a href="index.html" class="nav__link">← На сайт</a>
+        <span class="nav__link admin-live" id="liveClock"></span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="admin container">
+    <div class="admin__head">
+      <div>
+        <p class="section-kicker">Администрирование</p>
+        <h1 class="section-title">Бронирования столиков</h1>
+      </div>
+      <div class="admin__head-actions">
+        <select id="statusFilter" class="admin-filter">
+          <option value="все">Все статусы</option>
+          <option value="новая">Новые</option>
+          <option value="подтверждена">Подтверждённые</option>
+          <option value="отменена">Отменённые</option>
+        </select>
+        <button class="btn btn--ghost" id="refreshBtn">⟳ Обновить</button>
+      </div>
+    </div>
+
+    <div class="admin__stats" id="stats"></div>
+
+    <div class="admin__table-wrap">
+      <table class="admin-table" id="bookingsTable">
+        <thead>
+          <tr>
+            <th>№</th>
+            <th>Гость</th>
+            <th>Телефон</th>
+            <th>Гостей</th>
+            <th>Дата</th>
+            <th>Время</th>
+            <th>Комментарий</th>
+            <th>Создано</th>
+            <th>Статус</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="10" class="admin-table__empty">Загружаем бронирования…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© 2026 Ресторан LUMIÈRE · Панель управления бронированиями</p>
+      <a href="index.html" class="footer__admin">Открыть сайт →</a>
+    </div>
+  </footer>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

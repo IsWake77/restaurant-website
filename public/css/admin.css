@@ -1,0 +1,124 @@
+/* ============ Панель бронирований ============ */
+
+.admin-body { background: var(--bg-soft); }
+
+.admin { padding: 130px 24px 80px; }
+
+.admin__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+.admin__head .section-title { margin-bottom: 0; }
+.admin__head-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.admin-filter {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 12px 22px;
+  cursor: pointer;
+}
+.admin-filter:focus { outline: none; border-color: var(--gold); }
+
+.admin-live { color: var(--text-muted); cursor: default; }
+.admin-live::after { display: none; }
+
+.admin__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+}
+.stat-card b {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  color: var(--gold-light);
+  display: block;
+  line-height: 1.2;
+}
+.stat-card span { color: var(--text-muted); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px; }
+
+.admin__table-wrap {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow-x: auto;
+}
+.admin-table { width: 100%; border-collapse: collapse; min-width: 980px; }
+.admin-table th {
+  text-align: left;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.admin-table td {
+  padding: 15px 18px;
+  border-bottom: 1px solid rgba(212, 175, 96, 0.08);
+  font-size: 0.9rem;
+  color: var(--text);
+  vertical-align: top;
+}
+.admin-table tbody tr { transition: background 0.2s; }
+.admin-table tbody tr:hover { background: rgba(212, 175, 96, 0.05); }
+.admin-table tbody tr:last-child td { border-bottom: none; }
+.admin-table__empty { text-align: center; color: var(--text-muted); padding: 40px 18px; }
+
+.admin-table .cell-id { color: var(--gold-light); font-weight: 700; }
+.admin-table .cell-name b { display: block; }
+.admin-table .cell-date b { display: block; }
+.admin-table .cell-date, .admin-table .cell-time { white-space: nowrap; }
+.admin-table .cell-comment { color: var(--text-muted); max-width: 220px; }
+.admin-table .cell-created { color: var(--text-muted); font-size: 0.8rem; white-space: nowrap; }
+
+.status-badge {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+.status--new      { background: rgba(212, 175, 96, 0.14); border-color: rgba(212, 175, 96, 0.5); color: var(--gold-light); }
+.status--confirm  { background: rgba(76, 158, 102, 0.15); border-color: rgba(76, 158, 102, 0.5); color: #8fd6a8; }
+.status--cancel   { background: rgba(198, 78, 78, 0.15);  border-color: rgba(198, 78, 78, 0.5);  color: #e79c9c; }
+
+.admin-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.admin-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 7px 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.admin-btn:hover { border-color: var(--gold); color: var(--gold-light); }
+.admin-btn--ok:hover { border-color: #4c9e66; color: #8fd6a8; }
+.admin-btn--del:hover { border-color: #c64e4e; color: #e79c9c; }
+
+@media (max-width: 760px) {
+  .admin { padding-top: 110px; }
+  .admin__head { flex-direction: column; align-items: flex-start; }
+}
