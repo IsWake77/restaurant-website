@@ -433,6 +433,8 @@ a:hover { color: var(--gold); }
   padding: 40px;
   backdrop-filter: blur(6px);
 }
+/* Атрибут hidden должен побеждать display: flex — иначе лайтбокс виден при загрузке */
+.lightbox[hidden] { display: none; }
 .lightbox img {
   max-width: min(900px, 90vw);
   max-height: 85vh;
